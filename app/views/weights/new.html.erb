@@ -1,0 +1,26 @@
+<% @weight.errors.full_messages.each do |msg| %>
+    <div class="alert alert-danger" role="alert">
+        <%= msg %>
+    </div>
+<% end %>
+
+<%= form_for @weight do |weight_form| %>
+    <h1 class="title">Registro de Pesos</h1>
+    <hr class="hr2">
+
+    <div class="row space-between-div">
+        <div class="col-sm-3">
+            <div class="form-group">
+                <%= weight_form.label :peso_atual %>
+                <%= weight_form.number_field :peso_atual, step:0.1, class:"form-control" %>
+            </div>
+        </div>
+    </div>
+
+    <%= weight_form.submit "Salvar", class:"btn btn-primary" %>
+
+    <div class="row space-top">
+        <%= link_to "Voltar", root_url, class:"btn btn-default"%>
+    </div>
+
+<% end %>
