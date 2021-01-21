@@ -18,7 +18,7 @@
         <div class="col-sm-2">
             <div class="control-group">
                 <%= diet_form.label :meal, class:"control-label"%>
-                <%= form.collection_select :meal_id, @meals, :id, :descricao, {}, class:"form-control"%>
+                <%= diet_form.collection_select :meal_id, @meals, :id, :descricao, {}, class:"form-control"%>
             </div>
         </div>
     </div>

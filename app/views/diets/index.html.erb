@@ -20,7 +20,7 @@
             <% @diets.each do |diet| %>
                 <tr>
                     <td><%= diet.horario %></td>
-                    <td><%= diet.meal_id.descricao %></td>
+                    <td><%= diet.meal_id %></td>
                     <td><%= diet.descricao %></td>
                     <td>
                         <%= link_to "Atualizar", edit_diet_path(diet), class:"btn btn-default" %>

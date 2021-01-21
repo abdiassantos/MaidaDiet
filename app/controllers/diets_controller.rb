@@ -6,17 +6,18 @@ class DietsController < ApplicationController
     @infos = Info.order(:data_inicio).where("user_id = ?", current_user.id)
     @meals = Meal.order(:id)
   end
-
+  
   def new
     @diet = Diet.new
     @info = Info.new
-    @diets = Diet.order(:horario).where("user_id = ?", current_user.id)
     @meal = Meal.new
-    @meals = Meal.all
+    @diets = Diet.order(:horario).where("user_id = ?", current_user.id)
+    @meals = Meal.all.order(:id)
     
   end
 
   def edit
+    @meals = Meal.all.order(:id)
     @diets = Diet.order(:horario).where("user_id = ?", current_user.id)
 
     render :edit

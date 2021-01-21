@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   resources :diets, only: [:index, :new, :create, :destroy, :edit, :update]
   resources :infos, only: [:index, :new, :create, :destroy, :edit, :update]
   resources :weights, only: [:index, :new, :create]
-  resources :meals, only: [:index, :new, :create]
+  resources :meals
 end
