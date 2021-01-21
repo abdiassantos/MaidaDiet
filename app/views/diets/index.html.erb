@@ -1,0 +1,69 @@
+<div class="container space-between-div">
+        <%= link_to "Criar nova dieta", new_diet_path, class:"btn btn-default" %>
+</div>
+
+<div class="container">
+    <table class="table table-bordered table-hover">
+        <div class="alert alert-success" role="alert">
+            <h3 class="alert-heading">DIETS</h3>
+        </div>
+        <thead>
+            <tr>
+                <td>Horário</td>
+                <td>Refeição</td>
+                <td>Descrição</td>
+                <td colspan="2"></td>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% @diets.each do |diet| %>
+                <tr>
+                    <td><%= diet.horario %></td>
+                    <td><%= diet.meal_id.descricao %></td>
+                    <td><%= diet.descricao %></td>
+                    <td>
+                        <%= link_to "Atualizar", edit_diet_path(diet), class:"btn btn-default" %>
+                    </td>
+                    <td>
+                        <%= button_to "Remover", diet, method: :delete, class:"btn btn-danger", data: {confirm: "Tem certeza que deseja excluir a refeição?"} %>
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+
+    <table class="table table-bordered table-hover">
+        <div class="alert alert-success" role="alert">
+            <h3 class="alert-heading">DADOS GERAIS</h3>
+        </div>
+        <thead>
+            <tr>
+                <td>Data inicio</td>
+                <td>Data fim</td>
+                <td>Peso</td>
+                <td>Peso ideal</td>
+                <td>Altura</td>
+                <td colspan="2"></td>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% @infos.each do |info| %>
+                <tr>
+                    <td><%= info.data_inicio %></td>
+                    <td><%= info.data_fim %></td>
+                    <td><%= info.peso %></td>
+                    <td><%= info.peso_ideal %></td>
+                    <td><%= info.altura %></td>
+                    <td>
+                        <%= link_to "Atualizar", edit_info_path(info), class:"btn btn-default" %>
+                    </td>
+                    <td>
+                        <%= button_to "Remover", info, method: :delete, class:"btn btn-danger", data: {confirm: "Tem certeza que deseja excluir os dados gerais da dieta?"} %>
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>

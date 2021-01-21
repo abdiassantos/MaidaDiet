@@ -1,0 +1,58 @@
+<% @info.errors.full_messages.each do |msg| %>
+    <div class="alert alert-danger" role="alert">
+        <%= msg %>
+    </div>
+<% end %>
+
+<%= form_for @info do |info_form| %>
+    <h1 class="title">Dados Gerais</h1>
+    <hr class="hr2">
+    <div class="space-between-categories">
+        <div class="row space-between-div">
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <%= info_form.label :data_inicio %>
+                    <%= info_form.date_field :data_inicio, class:"form-control" %>
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+                <div class="form-group space-left">
+                    <%= info_form.label :data_fim %>
+                    <%= info_form.date_field :data_fim, class:"form-control" %>
+                </div>
+            </div>
+        </div>
+
+        <div class="row space-between-div">
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <%= info_form.label :peso %>
+                    <%= info_form.number_field :peso, step:0.01, class:"form-control" %>
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+                <div class="form-group space-left">
+                    <%= info_form.label :altura %>
+                    <%= info_form.number_field :altura, step:0.1, class:"form-control" %>
+                </div>
+            </div>
+        </div>
+
+        <div class="row space-between-div">
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <%= info_form.label :peso_ideal %>
+                    <%= info_form.number_field :peso_ideal, step:0.01, class:"form-control" %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <%= info_form.submit "Atualizar", class:"btn btn-primary" %>
+
+        <div class="row space-top">
+            <%= link_to "Voltar", diets_path, class:"btn btn-default"%>
+        </div>
+<% end %>

@@ -11,6 +11,10 @@
 
   <body>
     <%= nav_bar brand: "Dashboard", brand_link: root_url do %>
+      <%= menu_group do %>
+        <%= menu_item "Dieta", diets_path %>
+      <% end %>
+      
       <p class="navbar-text navbar-right">
       <% if user_signed_in? %>
         Logado como: <strong><%= current_user.name %></strong>.

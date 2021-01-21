@@ -1,0 +1,128 @@
+<% @diet.errors.full_messages.each do |msg| %>
+    <div class="alert alert-danger" role="alert">
+        <%= msg %>
+    </div>
+<% end %>
+
+<% @info.errors.full_messages.each do |msg| %>
+    <div class="alert alert-danger" role="alert">
+        <%= msg %>
+    </div>
+<% end %>
+
+<%= form_for @info do |info_form| %>
+    <h1 class="title">Dados Gerais</h1>
+    <hr class="hr2">
+    <div class="space-between-categories">
+        <div class="row space-between-div">
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <%= info_form.label :data_inicio %>
+                    <%= info_form.date_field :data_inicio, class:"form-control" %>
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+                <div class="form-group space-left">
+                    <%= info_form.label :data_fim %>
+                    <%= info_form.date_field :data_fim, class:"form-control" %>
+                </div>
+            </div>
+        </div>
+
+        <div class="row space-between-div">
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <%= info_form.label :peso %>
+                    <%= info_form.number_field :peso, step:0.01, class:"form-control" %>
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+                <div class="form-group space-left">
+                    <%= info_form.label :altura %>
+                    <%= info_form.number_field :altura, step:0.1, class:"form-control" %>
+                </div>
+            </div>
+        </div>
+
+        <div class="row space-between-div">
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <%= info_form.label :peso_ideal %>
+                    <%= info_form.number_field :peso_ideal, step:0.01, class:"form-control" %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <%= info_form.submit "Salvar", class:"btn btn-primary" %>
+<% end %>
+
+<hr class="hr1">
+<%= form_for @diet do |diet_form| %>
+    <h1 class="title">Dietas</h1>
+    <hr class="hr2">
+    <div class="row">
+        <div class="col-sm-2">
+            <div class="form-group">
+                <%= diet_form.label :horario %>
+                <%= diet_form.time_field :horario, class:"form-control" %>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="control-group">
+                <%= diet_form.label 'Refeicao', class:"control-label"%>
+                <%= diet_form.collection_select :meal_id, @meals, :id, :descricao, {}, class:"form-control"%>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-10">
+            <div class="form-group">
+                <%= diet_form.label :descricao %>
+                <%= diet_form.text_area :descricao, class:"form-control", rows:6 %>
+            </div>
+        </div>
+    </div>
+
+    <%= diet_form.submit "Adicionar", class:"btn btn-primary" %>
+<% end %>
+
+<hr class="hr2">
+<div class="container">
+    <table class="table table-bordered table-hover">
+        <div class="alert alert-success" role="alert">
+            <h3 class="alert-heading">DIETAS</h3>
+        </div>
+        <thead>
+            <tr>
+                <td>Horário</td>
+                <td>Refeição</td>
+                <td>Descrição</td>
+                <td colspan="2"></td>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% @diets.each do |diet| %>
+                <tr>
+                    <td><%= diet.horario %></td>
+                    <td><%= diet.meal_id %></td>
+                    <td><%= diet.descricao %></td>
+                    <td>
+                        <%= link_to "Atualizar", edit_diet_path(diet), class:"btn btn-default" %>
+                    </td>
+                    <td>
+                    <%= button_to "Remover", diet, method: :delete, class:"btn btn-danger", data: {confirm: "Tem certeza que deseja excluir a refeição?"} %>
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
+
+<div class="space-between-div">
+        <%= link_to "FINALIZAR", diets_path, class:"btn btn-success" %>
+</div>

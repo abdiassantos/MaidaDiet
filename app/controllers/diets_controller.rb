@@ -4,6 +4,7 @@ class DietsController < ApplicationController
   def index
     @diets = Diet.order(:horario).where("user_id = ?", current_user.id)
     @infos = Info.order(:data_inicio).where("user_id = ?", current_user.id)
+    @meals = Meal.order(:id)
   end
 
   def new
