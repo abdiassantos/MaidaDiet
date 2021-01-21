@@ -1,3 +1,67 @@
-// Place all the styles related to the dashboard controller here.
+// Place all the styles related to the Dashboard controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.absolute {
+  position: absolute;
+  top: 7%;
+  right: 25%;
+}
+
+.space-between-div{
+  width: 100%;
+  display: block;
+  margin-bottom: 20px;
+}
+
+h3 {
+  color: rgb(68, 68, 68)
+}
+
+h4 {
+  color: rgb(119, 118, 118)
+}
+
+.space-between-categories {
+  padding-bottom: 40px;
+}
+
+.button-space {
+  margin-top: 20px;
+  margin-bottom: 70px;
+}
+
+.space-top {
+  margin-top: 50px;
+  float: right;
+}
+
+.space-bottom {
+  margin-bottom: 150px;
+  float: right
+}
+
+.space-left {
+  margin-right: -200px;
+  margin-left: 200px;
+}
+
+hr {
+  margin-bottom: 40px; 
+}
+
+.hr1 {
+  border: 0;
+  border-top: 2px solid #CCC;
+}
+
+.hr2 {
+  border: 0;
+  border-top: 2px dashed #CCC;
+}
+
+.hr3 {
+  border: 0;
+  height: 2px;
+  background-image: linear-gradient(to right, transparent, #CCC, transparent);  
+}
