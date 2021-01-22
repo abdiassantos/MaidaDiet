@@ -9,6 +9,10 @@ class WeightsController < ApplicationController
         @weights = Weight.order(:peso_atual)
     end
 
+    def show
+        @weight = Weight.find(params[:id])
+    end
+
     def create
         values = params.require(:weight).permit(:peso_atual)
 
