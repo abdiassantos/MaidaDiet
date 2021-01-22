@@ -39,7 +39,7 @@ yarn install --check-files
 ## Executando Creates e Migrates para o banco de dados
 * Execute os comando abaixo para criar toda a estrutura do banco de dados, alḿe de migrar as tabelas e popular o banco com dados iniciais:
     ```bash
-      rails db:create
+      rails db:reset
     ```
 
 ## Rodando o projeto
