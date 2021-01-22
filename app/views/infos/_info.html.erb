@@ -1,0 +1,13 @@
+<tr>
+  <td><%= info.data_inicio %></td>
+  <td><%= info.data_fim %></td>
+  <td><%= info.peso %></td>
+  <td><%= info.peso_ideal %></td>
+  <td><%= info.altura %></td>
+  <td>
+      <%= link_to "Atualizar", edit_info_path(info), class:"btn btn-default" %>
+  </td>
+  <td>
+      <%= button_to "Remover", info, method: :delete, class:"btn btn-danger", data: {confirm: "Tem certeza que deseja excluir os dados gerais da dieta?"} %>
+  </td>
+</tr>

@@ -1,0 +1,11 @@
+<tr>
+    <td><%= diet.horario %></td>
+    <!--td><%= diet.meal_id %></!--td-->
+    <td><%= diet.descricao %></td>
+    <td>
+        <%= link_to "Atualizar", edit_diet_path(diet), class:"btn btn-default" %>
+    </td>
+    <td>
+    <%= button_to "Remover", diet, method: :delete, class:"btn btn-danger", data: {confirm: "Tem certeza que deseja excluir a refeição?"} %>
+    </td>
+</tr>

@@ -3,67 +3,139 @@
 </div>
 
 <div class="container">
-    <table class="table table-bordered table-hover">
+  <% if @cafe_da_manha.exists? %>
+    <hr class="hr2">
+    <div class="container">
+      <table class="table table-bordered table-hover">
         <div class="alert alert-success" role="alert">
-            <h3 class="alert-heading">DIETS</h3>
+          <h3 class="alert-heading">Café da Manhã</h3>
         </div>
         <thead>
-            <tr>
-                <td>Horário</td>
-                <td>Refeição</td>
-                <td>Descrição</td>
-                <td colspan="2"></td>
-            </tr>
+          <tr>
+              <td>Horário</td>
+              <td>Refeição</td>
+              <td>Descrição</td>
+              <td colspan="2"></td>
+          </tr>
         </thead>
 
         <tbody>
-            <% @diets.each do |diet| %>
-                <tr>
-                    <td><%= diet.horario %></td>
-                    <td><%= diet.meal_id %></td>
-                    <td><%= diet.descricao %></td>
-                    <td>
-                        <%= link_to "Atualizar", edit_diet_path(diet), class:"btn btn-default" %>
-                    </td>
-                    <td>
-                        <%= button_to "Remover", diet, method: :delete, class:"btn btn-danger", data: {confirm: "Tem certeza que deseja excluir a refeição?"} %>
-                    </td>
-                </tr>
-            <% end %>
+          <%= render @cafe_da_manha %>
         </tbody>
-    </table>
+      </table>
+    </div>
+  <% end %>
 
-    <table class="table table-bordered table-hover">
+  <% if @lanche_da_manha.exists? %>
+    <hr class="hr2">
+    <div class="container">
+      <table class="table table-bordered table-hover">
         <div class="alert alert-success" role="alert">
-            <h3 class="alert-heading">DADOS GERAIS</h3>
+          <h3 class="alert-heading">Lanche da manhã</h3>
         </div>
         <thead>
-            <tr>
-                <td>Data inicio</td>
-                <td>Data fim</td>
-                <td>Peso</td>
-                <td>Peso ideal</td>
-                <td>Altura</td>
-                <td colspan="2"></td>
-            </tr>
+          <tr>
+              <td>Horário</td>
+              <td>Refeição</td>
+              <td>Descrição</td>
+              <td colspan="2"></td>
+          </tr>
         </thead>
 
         <tbody>
-            <% @infos.each do |info| %>
-                <tr>
-                    <td><%= info.data_inicio %></td>
-                    <td><%= info.data_fim %></td>
-                    <td><%= info.peso %></td>
-                    <td><%= info.peso_ideal %></td>
-                    <td><%= info.altura %></td>
-                    <td>
-                        <%= link_to "Atualizar", edit_info_path(info), class:"btn btn-default" %>
-                    </td>
-                    <td>
-                        <%= button_to "Remover", info, method: :delete, class:"btn btn-danger", data: {confirm: "Tem certeza que deseja excluir os dados gerais da dieta?"} %>
-                    </td>
-                </tr>
-            <% end %>
+          <%= render @lanche_da_manha %>
         </tbody>
-    </table>
-</div>
+      </table>
+    </div>
+  <% end %>
+
+  <% if @almoco.exists? %>
+    <hr class="hr2">
+    <div class="container">
+      <table class="table table-bordered table-hover">
+        <div class="alert alert-success" role="alert">
+          <h3 class="alert-heading">Almoco</h3>
+        </div>
+        <thead>
+          <tr>
+              <td>Horário</td>
+              <td>Refeição</td>
+              <td>Descrição</td>
+              <td colspan="2"></td>
+          </tr>
+        </thead>
+
+        <tbody>
+          <%= render @almoco %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+
+  <% if @lanche_da_tarde.exists? %>
+    <hr class="hr2">
+    <div class="container">
+      <table class="table table-bordered table-hover">
+        <div class="alert alert-success" role="alert">
+          <h3 class="alert-heading">lanche da Tarde</h3>
+        </div>
+        <thead>
+          <tr>
+              <td>Horário</td>
+              <td>Refeição</td>
+              <td>Descrição</td>
+              <td colspan="2"></td>
+          </tr>
+        </thead>
+
+        <tbody>
+          <%= render @lanche_da_tarde %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+
+  <% if @jantar.exists? %>
+    <hr class="hr2">
+    <div class="container">
+      <table class="table table-bordered table-hover">
+        <div class="alert alert-success" role="alert">
+          <h3 class="alert-heading">Jantar</h3>
+        </div>
+        <thead>
+          <tr>
+              <td>Horário</td>
+              <td>Refeição</td>
+              <td>Descrição</td>
+              <td colspan="2"></td>
+          </tr>
+        </thead>
+
+        <tbody>
+          <%= render @jantar %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+
+  <hr class="hr2">  
+  <table class="table table-bordered table-hover">
+    <div class="alert alert-success" role="alert">
+      <h3 class="alert-heading">DADOS GERAIS</h3>
+    </div>
+    <thead>
+      <tr>
+        <td>Data inicio</td>
+        <td>Data fim</td>
+        <td>Peso</td>
+        <td>Peso ideal</td>
+        <td>Altura</td>
+        <td colspan="2"></td>
+      </tr>
+  </thead>
+
+    <tbody>
+      <%= render @infos%>
+    </tbody>
+  </table>
+</>

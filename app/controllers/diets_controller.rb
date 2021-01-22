@@ -5,6 +5,7 @@ class DietsController < ApplicationController
     @diets = Diet.order(:horario).where("user_id = ?", current_user.id)
     @infos = Info.order(:data_inicio).where("user_id = ?", current_user.id)
     @meals = Meal.order(:id)
+    show_diets_types
   end
   
   def new
@@ -13,6 +14,7 @@ class DietsController < ApplicationController
     @meal = Meal.new
     @diets = Diet.order(:horario).where("user_id = ?", current_user.id)
     @meals = Meal.all.order(:id)
+    show_diets_types
     
   end
 
@@ -61,5 +63,13 @@ class DietsController < ApplicationController
 
   def set_diet
     @diet = Diet.find(params[:id])
+  end
+
+  def show_diets_types
+    @cafe_da_manha = Diet.order(:id).where("meal_id = 1")
+    @lanche_da_manha = Diet.order(:id).where("meal_id = 2")
+    @almoco = Diet.order(:id).where("meal_id = 3")
+    @lanche_da_tarde = Diet.order(:id).where("meal_id = 4")
+    @jantar = Diet.order(:id).where("meal_id = 5")
   end
 end
