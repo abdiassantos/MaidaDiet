@@ -264,7 +264,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   chartkick
-  database_cleaner
+  database_cleaner (~> 1.8.5)
   devise
   factory_bot_rails
   faker

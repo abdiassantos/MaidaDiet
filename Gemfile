@@ -41,7 +41,7 @@ group :development, :test do
 
   #RSpec fo testings
   gem 'rails-controller-testing'
-  gem 'database_cleaner'
+  gem 'database_cleaner', '~> 1.8.5'
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'rspec-rails', '~> 4.0.1'
