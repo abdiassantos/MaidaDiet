@@ -2,6 +2,27 @@
         <%= link_to "Criar nova dieta", new_diet_path, class:"btn btn-default" %>
 </div>
 
+<hr class="hr2">  
+  <table class="table table-bordered table-hover">
+    <div class="alert alert-danger" role="alert">
+      <h3 class="alert-heading"><strong>DADOS GERAIS</strong></h3>
+    </div>
+    <thead>
+      <tr>
+        <td>Data inicio</td>
+        <td>Data fim</td>
+        <td>Peso</td>
+        <td>Peso ideal</td>
+        <td>Altura</td>
+        <td colspan="2"></td>
+      </tr>
+  </thead>
+
+    <tbody>
+      <%= render @infos%>
+    </tbody>
+  </table>
+
 <div class="container">
   <% if @cafe_da_manha.exists? %>
     <hr class="hr2">
@@ -27,7 +48,6 @@
   <% end %>
 
   <% if @lanche_da_manha.exists? %>
-    <hr class="hr2">
     <div class="container">
       <table class="table table-bordered table-hover">
         <div class="alert alert-success" role="alert">
@@ -50,7 +70,6 @@
   <% end %>
 
   <% if @almoco.exists? %>
-    <hr class="hr2">
     <div class="container">
       <table class="table table-bordered table-hover">
         <div class="alert alert-success" role="alert">
@@ -73,7 +92,6 @@
   <% end %>
 
   <% if @lanche_da_tarde.exists? %>
-    <hr class="hr2">
     <div class="container">
       <table class="table table-bordered table-hover">
         <div class="alert alert-success" role="alert">
@@ -96,7 +114,6 @@
   <% end %>
 
   <% if @jantar.exists? %>
-    <hr class="hr2">
     <div class="container">
       <table class="table table-bordered table-hover">
         <div class="alert alert-success" role="alert">
@@ -117,25 +134,4 @@
       </table>
     </div>
   <% end %>
-
-  <hr class="hr2">  
-  <table class="table table-bordered table-hover">
-    <div class="alert alert-success" role="alert">
-      <h3 class="alert-heading">DADOS GERAIS</h3>
-    </div>
-    <thead>
-      <tr>
-        <td>Data inicio</td>
-        <td>Data fim</td>
-        <td>Peso</td>
-        <td>Peso ideal</td>
-        <td>Altura</td>
-        <td colspan="2"></td>
-      </tr>
-  </thead>
-
-    <tbody>
-      <%= render @infos%>
-    </tbody>
-  </table>
-</>
+</div>

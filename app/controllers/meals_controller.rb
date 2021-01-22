@@ -4,19 +4,19 @@ class MealsController < ApplicationController
   end
 
   def new
-      @meal = Meal.new
-      @meals = Meal.order(:id)
+    @meal = Meal.new
+    @meals = Meal.order(:id)
   end
 
   def create
-      values = params.require(:meal).permit(:descricao)
+    meal = Meal.new(meals_params)
+    
+    meal.save
+  end
 
-      @meal = Meal.new values
-      
-      if @meal.save
-          redirect_to root_url
-      else
-          render :new
-      end
+  # Meals params
+  private
+  def meals_params
+      params.permit(:descricao, :created_at, :updated_at)
   end
 end
